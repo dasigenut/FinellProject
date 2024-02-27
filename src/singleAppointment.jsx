@@ -4,7 +4,7 @@ const SingleAppointment = observer((props)=>{
         
     
     return (<div style={{border: '1px solid red'}}>
-        <h1>{id}</h1>
+       
         <h3>{serviceType}</h3>
         <h3>{dateTime}</h3>
         <h3>{clientName}</h3>
