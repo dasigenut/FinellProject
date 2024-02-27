@@ -3,6 +3,7 @@ import { observer } from 'mobx-react-lite';
 import BusinessData from './businessData'
 import AddService from './addService'; // שינוי שם היבוא כדי לשים פחות או יותר את אותו שם כמו השם של הקומפוננטה
 import * as React from 'react';
+import AppointmentList from './appointmentList'
 
 const Manager = observer(() => {
     const [showAddService, setShowAddService] = React.useState(false); // הוספת משתנה מקומי כדי לנהל את ההצגה של הקומפוננטה
@@ -18,6 +19,8 @@ const Manager = observer(() => {
             <BusinessData />
             <br></br>
             <ServiceList />
+            <AppointmentList/>
+          
         </div>
     );
 });

@@ -6,10 +6,16 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
+import Login from './login'
 
 const BusinessData = observer(() => {
 
     const busines = business.getBusiness;
+    const [showLogin,setShowLogin]=React.useState(false)
+
+    function handleClick(){
+        setShowLogin(true)
+    }
 
     return (<>
         <div>
@@ -37,7 +43,8 @@ const BusinessData = observer(() => {
                     </CardContent>
                 </CardActionArea>
             </Card>
-              
+              <button onClick={handleClick}>Login</button>
+              {showLogin && <Login/>}
         </div>
     </>)
 });

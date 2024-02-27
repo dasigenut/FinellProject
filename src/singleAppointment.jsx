@@ -1,18 +1,39 @@
-import { observer } from "mobx-react-lite";
-const SingleAppointment = observer((props)=>{
-    const {id,serviceType,dateTime, clientName,clientPhone,clientEmail } = props;
-        
-    
-    return (<div style={{border: '1px solid red'}}>
-       
-        <h3>{serviceType}</h3>
-        <h3>{dateTime}</h3>
-        <h3>{clientName}</h3>
-        <h3>{clientPhone}</h3>
-        <h3>{clientEmail}</h3>
-       
+import { observer } from 'mobx-react-lite';
+import * as React from 'react';
+import { styled } from '@mui/material/styles';
+import TableCell, { tableCellClasses } from '@mui/material/TableCell';
+import TableRow from '@mui/material/TableRow';
 
-    </div>)
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+    [`&.${tableCellClasses.head}`]: {
+        backgroundColor: theme.palette.common.black,
+        color: theme.palette.common.white,
+    },
+    [`&.${tableCellClasses.body}`]: {
+        fontSize: 14,
+    },
+}));
+
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
+    '&:nth-of-type(odd)': {
+        backgroundColor: theme.palette.action.hover,
+    },
+    '&:last-child td, &:last-child th': {
+        border: 0,
+    },
+}));
+
+const SingleAppointment = observer(({ id, clientName, clientPhone, clientEmail, serviceType, dateTime }) => {
+    return (
+        <StyledTableRow key={id}>
+            <StyledTableCell component="th" scope="row">{clientName}</StyledTableCell>
+            <StyledTableCell align="right">{clientPhone}</StyledTableCell>
+            <StyledTableCell align="right">{clientEmail}</StyledTableCell>
+            <StyledTableCell align="right">{serviceType}</StyledTableCell>
+            <StyledTableCell align="right">{dateTime}</StyledTableCell>
+        </StyledTableRow>
+    );
 });
 
 export default SingleAppointment;
+
