@@ -6,12 +6,11 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { useState } from 'react';
 import NewAppointment from './addAppointment';
 
 const SingleService = observer((props) => {
-    const { typeService, descraption } = props;
-    const [showNewAppointment, setShowNewAppointment] = useState(false);
+    const { typeService, descraption,img } = props;
+    const [showNewAppointment, setShowNewAppointment] = React.useState(false);
 
     const handleAddAppointmentClick = () => {
         setShowNewAppointment(true);
@@ -19,10 +18,15 @@ const SingleService = observer((props) => {
 
     return (
         <div>
-            <Card sx={{ maxWidth: 345 }}>
+            <Card style={{ 
+                maxWidth: 345, 
+                marginBottom: '20px', 
+                display: 'flex', 
+                flexDirection: 'column' 
+            }}>
                 <CardMedia
-                    sx={{ height: 140 }}
-                    image={<img src="../images/9999999-300x300.webp" alt="תמונת דוגמה" />}
+                    style={{ height: 140 }}
+                    image={img}
                     title="green iguana"
                 />
                 <CardContent>
@@ -34,10 +38,10 @@ const SingleService = observer((props) => {
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button onClick={handleAddAppointmentClick} size="small">AddApointment</Button>
+                    <Button onClick={handleAddAppointmentClick} size="small">AddAppointment</Button>
                 </CardActions>
             </Card>
-            {showNewAppointment && <NewAppointment />}
+            {showNewAppointment && <NewAppointment setShowForm={setShowNewAppointment} />}
         </div>
     );
 });

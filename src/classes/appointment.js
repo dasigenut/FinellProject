@@ -38,20 +38,24 @@ class Appointment {
     //         console.log(err);
     //     })
     // }
-    addAppointment(appointment) {
-        fetch(`${baseUrl}/appointment`, {
+    async addAppointment(appointment) {
+        try{
+        const res = await fetch(`${baseUrl}/appointment`, {
             method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+              },
             body: JSON.stringify(appointment)
-        })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            // הוסף את הנתונים לרשימה
-            this.list.push(data);
-        })
-        .catch(err => {
-            console.log(err);
         });
+        console.log('res',res);
+        if(res.status==200){
+            this.list.push(...appointment);
+        }
+    }
+        catch(error) {
+            console.log(error);
+        }
     }
     
     get getAllApointments(){

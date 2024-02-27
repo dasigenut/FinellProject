@@ -7,6 +7,7 @@ const AppointmentList = observer(() => {
 
     return (<>
         <div>
+            
             {
                 list.map(a => <SingleAppointment key={a.id} {...a} />)
             }

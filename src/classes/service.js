@@ -2,9 +2,27 @@ import {makeObservable, observable, computed, action, runInAction} from 'mobx';
 const baseUrl='http://localhost:8787'
 class Services {
     list = [
-        {typeService:"פדיקור",
-        descraption:"fhfgfg gbdgdbdtdg dgdgdgdgdgdn fgdgdgd dgdgdbc "
-         }
+        {
+            typeService:"פדיקור",
+            descraption:"fhfgfg gbdgdbdtdg dgdgdgdgdgdn fgdgdgd dgdgdbc ",
+            img:"https://www.beautycare.co.il/wp-content/uploads/2020/07/1003255_72_comp_1.jpg"
+         },
+         {
+            typeService:"מניקור",
+            descraption:"fhfgfg יהעבעיבעיבעיבעבgbdgdbdtdg dgdgdgdgdgdn fgdgdgd dgdgdbc "
+        
+         },
+         {
+            typeService:"מניקור",
+            descraption:"fhfgfg יהעבעיבעיבעיבעבgbdgdbdtdg dgdgdgdgdgdn fgdgdgd dgdgdbc "
+        
+         },
+         {
+            typeService:"מניקור",
+            descraption:"fhfgfg יהעבעיבעיבעיבעבgbdgdbdtdg dgdgdgdgdgdn fgdgdgd dgdgdbc "
+        
+         },
+
 ];
     constructor(){
         makeObservable(this, {
@@ -15,20 +33,26 @@ class Services {
        
     }
 
-    addAppointment(Service){
-        fetch(`${baseUrl}/service`, {
+    async addService(Service){
+        try{
+        const res = await fetch(`${baseUrl}/service`, {
             method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+              },
             body: JSON.stringify(Service)
-        }).then((res) => {
-            res.json();
-        }).then(data => {
-            console.log(data);//undefined
+        });
+        console.log("res" ,res)
+        if(res.status==200){
             this.list.push(...Service);
-        }).catch((err)=>{
-            console.log(err);
-        })
+            console.log("sucseed")
+        }
     }
-   
+       catch(error){
+         console.log(error);
+       }
+    }
     
     get getAllServices(){
         return this.list;

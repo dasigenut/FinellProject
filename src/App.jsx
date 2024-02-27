@@ -5,6 +5,7 @@ import './App.css'
 import Customers from './customers'
 import AppointmentList from './appointmentList'
 import NewAppointment from './addAppointment'
+import Manager from './manager'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -14,7 +15,8 @@ function App() {
     
       {/* <AppointmentList/>
       <NewAppointment/> */}
-      <Customers/>
+     {/* <Customers/> */}
+      <Manager/>
       
       
     </>
