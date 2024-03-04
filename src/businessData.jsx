@@ -6,15 +6,21 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
-import Login from './login'
+import Login from './login';
+import NewBusiness from './editbusinessDate'
 
-const BusinessData = observer(() => {
+const BusinessData = observer((props) => {
+    const { showLoginn,isAdmin } = props;
 
     const busines = business.getBusiness;
     const [showLogin,setShowLogin]=React.useState(false)
+    const [edit,setEdit]=React.useState(false)
 
     function handleClick(){
         setShowLogin(true)
+    }
+    function handleEdit(){
+        setEdit(true)
     }
 
     return (<>
@@ -43,8 +49,10 @@ const BusinessData = observer(() => {
                     </CardContent>
                 </CardActionArea>
             </Card>
-              <button onClick={handleClick}>Login</button>
+              {isAdmin && <button onClick={handleEdit}>Edit</button>}
+             {showLoginn && <button onClick={handleClick}>Login</button>}
               {showLogin && <Login/>}
+              {edit && <NewBusiness/>}
         </div>
     </>)
 });

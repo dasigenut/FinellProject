@@ -4,7 +4,7 @@ const baseUrl = 'http://localhost:8787';
 
 class Business {
     business = {
-        id: "123",
+      
         name: "Coding Academy",
         address: "Rothschild 60 Tel Aviv",
         phone: "03-1234567",
@@ -16,11 +16,11 @@ class Business {
     constructor() {
         makeObservable(this, {
             business: observable,
-            addAppointment: action,
+            addBusiness: action,
         });
     }
 
-    async addAppointment(newBusiness) {
+    async addBusiness(newBusiness) {
         try {
             const res = await fetch(`${baseUrl}/businessData`, {
                 method: 'POST',

@@ -1,4 +1,4 @@
-import { observer } from "mobx-react-lite";
+import { observer } from 'mobx-react-lite';
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 import NewAppointment from './addAppointment';
 
 const SingleService = observer((props) => {
-    const { typeService, descraption,img } = props;
+    const { typeService, descraption, img, showButton } = props;
     const [showNewAppointment, setShowNewAppointment] = React.useState(false);
 
     const handleAddAppointmentClick = () => {
@@ -38,7 +38,7 @@ const SingleService = observer((props) => {
                     </Typography>
                 </CardContent>
                 <CardActions>
-                    <Button onClick={handleAddAppointmentClick} size="small">AddAppointment</Button>
+                    {showButton && <Button onClick={handleAddAppointmentClick} size="small">AddAppointment</Button>}
                 </CardActions>
             </Card>
             {showNewAppointment && <NewAppointment setShowForm={setShowNewAppointment} />}

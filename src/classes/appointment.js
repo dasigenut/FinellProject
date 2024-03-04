@@ -50,7 +50,7 @@ class Appointment {
         });
         console.log('res',res);
         if(res.status==200){
-            this.list.push(...appointment);
+            this.list.push(...appointment);           
         }
     }
         catch(error) {
@@ -59,6 +59,7 @@ class Appointment {
     }
     
     get getAllApointments(){
+        
         return this.list;
     }
 }

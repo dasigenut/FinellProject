@@ -5,6 +5,7 @@ import './App.css'
 import Customers from './customers'
 import AppointmentList from './appointmentList'
 import NewAppointment from './addAppointment'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Manager from './manager'
 
 function App() {
@@ -13,10 +14,16 @@ function App() {
   return (
     <>
     
+    <Router>
+      <Routes>
+        <Route path="/" element={<Customers />} />
+        <Route path="/manager" element={<Manager />} />
+      </Routes>
+    </Router>
       {/* <AppointmentList/>
       <NewAppointment/> */}
      {/* <Customers/> */}
-      <Manager/>
+      {/* <Manager/> */}
       
       
     </>
