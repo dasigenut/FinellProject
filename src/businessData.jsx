@@ -25,13 +25,13 @@ const BusinessData = observer((props) => {
 
     return (<>
         <div>
-            <Card sx={{ maxWidth: 6000 }}>
+            <Card sx={{ maxWidth: 10000 }}>
                 <CardActionArea>
                     <CardMedia
                         component="img"
                         height="250"
                         image={busines.logo}
-                        alt="green iguana"
+                        //alt="green iguana"
                     />
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div">
@@ -49,8 +49,8 @@ const BusinessData = observer((props) => {
                     </CardContent>
                 </CardActionArea>
             </Card>
-              {isAdmin && <button onClick={handleEdit}>Edit</button>}
-             {showLoginn && <button onClick={handleClick}>Login</button>}
+              {isAdmin && <button className='buttonManager' onClick={handleEdit}>Edit</button>}
+             {showLoginn && <button className='buttonManager' onClick={handleClick}>Login</button>}
               {showLogin && <Login/>}
               {edit && <NewBusiness/>}
         </div>

@@ -36,6 +36,8 @@ const NewBusiness = observer(({ setShowForm }) => {
             noValidate
             autoComplete="off"
         >
+            <TextField label="id" type="text" onChange={(e) => handleChange('id', e.target.value)} />
+
             <TextField label="name" type="text" onChange={(e) => handleChange('name', e.target.value)} />
             <TextField label="address" type="text" onChange={(e) => handleChange('address', e.target.value)} />
             <TextField label="phone" type="text" onChange={(e) => handleChange('phone', e.target.value)} />

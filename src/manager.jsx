@@ -6,18 +6,24 @@ import * as React from 'react';
 import AppointmentList from './appointmentList';
 
 const Manager = observer(() => {
-    const [showAddService, setShowAddService] = React.useState(false);
+  const [showAddService, setShowAddService] = React.useState(false);
 
-    return (
-        <div>
-            <button onClick={() => setShowAddService(true)}>AddService</button>
-            {showAddService && <AddService setShowForm={setShowAddService} />}
-            <BusinessData showLoginn={false} isAdmin={true}/>
-            <br></br>
-            <ServiceList showButton={false} />
-            <AppointmentList/>
-        </div>
-    );
+  return (
+    <div>
+
+      <BusinessData showLoginn={false} isAdmin={true} />
+
+      <div className="button-container">
+        <button className="buttonManager" onClick={() => setShowAddService(true)}>
+          Add Service
+        </button>
+        {showAddService && <AddService setShowForm={setShowAddService} />}
+      </div>
+
+      <ServiceList showButton={false} />
+      <AppointmentList />
+    </div>
+  );
 });
 
 export default Manager;

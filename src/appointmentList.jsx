@@ -32,7 +32,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 const CustomizedTables = observer(() => {
-    const list = appointment.getAllApointments;
+    const [list,setList] =React.useState( appointment.getAllApointments);
 
     
     return (

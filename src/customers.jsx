@@ -5,7 +5,7 @@ import BusinessData from './businessData';
 const Customers = observer(() => {
     return (
         <div>
-           <BusinessData showLoginn={true} isAdmin={false}/>
+            <BusinessData showLoginn={true} isAdmin={false}/>
             <br></br>
             <ServiceList showButton={true} />
 

@@ -8,7 +8,7 @@ import Button from '@mui/material/Button'; // ייבוא רכיב הכפתור
 
 const NewService = observer(({ setShowForm }) => {
     const [data, setData] = useState({
-        typeService: '', descraption: '', img: ''
+     id:'',name:'',descraption: '', price: '',duration:''
     });
 
     function handleChange(field, value) {
@@ -17,6 +17,7 @@ const NewService = observer(({ setShowForm }) => {
 
     function handleSubmit(e) {
         e.preventDefault();
+        console.log(data)
         service.addService(data);
         setShowForm(false);
     }
@@ -30,9 +31,14 @@ const NewService = observer(({ setShowForm }) => {
             noValidate
             autoComplete="off"
         >
-            <TextField  label="TypeService" type="text" onChange={(e) => handleChange('typeService', e.target.value)} />
+            <TextField  label="id" type="text" onChange={(e) => handleChange('id', e.target.value)} />
+            <TextField  label="name" type="text" onChange={(e) => handleChange('name', e.target.value)} />
             <TextField  label="Descraption" type="text" onChange={(e) => handleChange('descraption', e.target.value)} />
-            <TextField  label="Img" type="text" onChange={(e) => handleChange('img', e.target.value)} />
+            <TextField  label="price" type="text" onChange={(e) => handleChange('price', e.target.value)} />
+            <TextField  label="duration" type="text" onChange={(e) => handleChange('duration', e.target.value)} />
+            <TextField  label="img" type="text" onChange={(e) => handleChange('img', e.target.value)} />
+
+
             {/* כפתור ההוספה שמפעיל את הפונקציה handleSubmit */}
             <Button onClick={handleSubmit} variant="contained" color="primary">
                 Add

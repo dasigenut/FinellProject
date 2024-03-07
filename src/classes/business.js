@@ -4,13 +4,13 @@ const baseUrl = 'http://localhost:8787';
 
 class Business {
     business = {
-      
-        name: "Coding Academy",
+        id:"1",
+        name: "makeup style",
         address: "Rothschild 60 Tel Aviv",
         phone: "03-1234567",
         owner: "Yariv Katz",
-        logo: "https://i0.wp.com/www.sauchasoap.com/wp-content/uploads/2021/08/%D7%A7%D7%95%D7%9E%D7%A4%D7%95%D7%96%D7%99%D7%A6%D7%99%D7%94-%D7%A1%D7%91%D7%95%D7%A0%D7%99%D7%9D-5.jpg?resize=1024%2C470&ssl=1",
-        description: "The best coding academyהעבבכב בכסכבכ בכאבכבכ בכבכבכב כסגאסאג בכארא in the world ניחהבעיבכס העיבכבכסכעסכע בככככככככככככככככככככככככככככככככככככככככככככככככככככככככככככ",
+        logo: "https://d-yofi.co.il/wp-content/uploads/2014/01/134103247.jpg",
+        description: "This site represents a service for people who like makeup at a high and professional level. The site presents evening makeup, everyday makeup, makeup of the highest level in the makeup world, excellent service and invites more and more professional and pleasant services"
     };
 
     constructor() {

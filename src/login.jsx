@@ -22,16 +22,19 @@ export default function Login() {
         },
         body: JSON.stringify({ name: name, password: password })
       });
-
+  
       if (res.status === 200) {
-         setShowAlert(true)
+        setShowAlert(true);
         console.log("Login successful");
         setShowForm(false);
+        alert("הקש כאן מכדי להכנס לדף בתור מנהל ");
         navigate("/Manager");
       } else {
+        setShowAlert(false);
+        alert("אינך ראשי להכנס לדף המנהל")
         console.log("Login failed");
       }
-
+  
     } catch (err) {
       console.log(err);
     }

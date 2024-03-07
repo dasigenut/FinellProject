@@ -1,17 +1,18 @@
 import {makeObservable, observable, computed, action, runInAction} from 'mobx';
+
 const baseUrl='http://localhost:8787'
 class Appointment {
     list = [{
         id: "758",
         serviceType: "11",
-        dateTime: "2021-06-20T10:00:00.000Z",//מבנה של תאריך ושעה סטנדרטי בjs
+        dateTime: "2024-05-20T10:00:00.000Z",//מבנה של תאריך ושעה סטנדרטי בjs
         clientName: "אבי כהן",
         clientPhone: "050-1234567",
         clientEmail: "m@m.com",
     },{
         id: "859",
         serviceType: "12",
-        dateTime: "2021-06-20T10:00:00.000Z",//מבנה של תאריך ושעה סטנדרטי בjs
+        dateTime: "2024-07-20T10:00:00.000Z",//מבנה של תאריך ושעה סטנדרטי בjs
         clientName: "רובי לוי",
         clientPhone: "050-588888",
         clientEmail: "m@m.com",
@@ -50,7 +51,9 @@ class Appointment {
         });
         console.log('res',res);
         if(res.status==200){
-            this.list.push(...appointment);           
+            this.list.push(...[appointment]);
+            console.log(this.list);          
+
         }
     }
         catch(error) {
@@ -58,9 +61,8 @@ class Appointment {
         }
     }
     
-    get getAllApointments(){
-        
-        return this.list;
+    get getAllApointments() {
+        return this.list.slice().sort((objA, objB) => new Date(objA.dateTime) - new Date(objB.dateTime));
     }
 }
 const singleton = new Appointment(); // single object as a class instance

@@ -40,3 +40,21 @@
 .read-the-docs {
   color: #888;
 }
+.buttonManager {
+  /* display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; */
+  margin-right: 10px;
+  margin-bottom: 2px;
+  margin-top: 4px;
+  width: 250px;
+  border-color: black;
+  border-width: 3px;
+}
+body{
+  background-color:rgb(210, 208, 208);
+}
+
+
+
+

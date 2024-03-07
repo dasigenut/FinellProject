@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 import NewAppointment from './addAppointment';
 
 const SingleService = observer((props) => {
-    const { typeService, descraption, img, showButton } = props;
+    const { id, name,descraption,price,duration,img, showButton } = props;
     const [showNewAppointment, setShowNewAppointment] = React.useState(false);
 
     const handleAddAppointmentClick = () => {
@@ -19,19 +19,26 @@ const SingleService = observer((props) => {
     return (
         <div>
             <Card style={{ 
-                maxWidth: 345, 
+                backgroundColor:'pink',
+                minWidth: 30, 
                 marginBottom: '20px', 
-                display: 'flex', 
-                flexDirection: 'column' 
+                margin:'20px',
+                minHeight:300                
             }}>
                 <CardMedia
-                    style={{ height: 140 }}
+                   
+                    style={{ height: 120}}
                     image={img}
                     title="green iguana"
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="div">
-                        {typeService}
+                        {name}
+                        
+                    </Typography>
+                    {"service code "+id}
+                    <Typography variant="body2" color="text.secondary">
+                        
                     </Typography>
                     <Typography variant="body2" color="text.secondary">
                         {descraption}
